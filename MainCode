@@ -1,0 +1,512 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class PokemonTournament
+{
+
+    public class Pokemon
+    {
+        public boolean fainted;
+        public String name;
+        public String type1;
+        public String type2;
+        public int hp;
+        public boolean isConfused;
+        public boolean isParalyzed;
+        public boolean isPoisoned;
+        public boolean isBurned;
+        public boolean isAsleep;
+        public boolean isFrozen;
+        
+        public Pokemon(boolean fainted, String name, String type1, String type2, int hp, boolean isConfused, boolean isParalyzed, boolean isPoisoned, boolean isBurned, boolean isAsleep, boolean isFrozen)
+        {
+            this.fainted = fainted;
+            this.name = name;
+            this.type1 = type1;
+            this.type2 = type2;
+            this.hp = hp;
+            this.isConfused = isConfused;
+            this.isParalyzed = isParalyzed;
+            this.isPoisoned = isPoisoned;
+            this.isBurned = isBurned;
+            this.isAsleep = isAsleep;
+            this.isFrozen = isFrozen;
+            
+        }
+
+		public Pokemon() {
+			// TODO Auto-generated constructor stub
+		}
+    }
+    public class PkAttk
+    {
+        public String name;
+        public String type;
+        public int dmg;
+        public int pp;
+        public boolean isSpecial;
+        public boolean lowersDefenseStat;
+        public boolean raisesSelfDefenseStat;
+        public boolean lowersAttackStat;
+        public boolean raisesSelfAttackStat;
+        public boolean lowersAccuracy;
+        public boolean raisesSelfAccuracy;
+        public boolean lowersSpAttkStat;
+        public boolean raisesSelfSpAttkStat;
+        public boolean confuses;
+        public boolean paralyzes;
+        public boolean poisons;
+        public boolean burns;
+        public boolean putsOppToSleep;
+        public boolean freezes;
+        
+        
+        public PkAttk (String name, String type, int dmg, int pp, boolean isSpecial, boolean lowersDefenseStat, boolean raisesSelfDefenseStat, boolean lowersAttackStat, boolean raisesSelfAttackStat, boolean lowersAccuracy, boolean raisesSelfAccuracy, boolean lowersSpAttkStat, boolean raisesSelfSpAttkStat, boolean confuses, boolean paralyzes, boolean poisons, boolean burns, boolean putsOppToSleep, boolean freezes)
+        {
+            this.name = name;
+            this.type = type;
+            this.dmg = dmg;
+            this.pp = pp;
+            this.isSpecial = isSpecial;
+            this.lowersDefenseStat = lowersDefenseStat;
+            this.raisesSelfDefenseStat = raisesSelfDefenseStat;
+            this.lowersAttackStat = lowersAttackStat;
+            this.raisesSelfAttackStat = raisesSelfAttackStat;
+            this.lowersAccuracy = lowersAccuracy;
+            this.raisesSelfAccuracy = raisesSelfAccuracy;
+            this.lowersSpAttkStat = lowersSpAttkStat;
+            this.raisesSelfSpAttkStat = raisesSelfSpAttkStat;
+            this.confuses = confuses;
+            this.paralyzes = paralyzes;
+            this.poisons = poisons;
+            this.burns = burns;
+            this.putsOppToSleep = putsOppToSleep;
+            this.freezes = freezes;
+        }
+    }
+    public class Opponent
+    {
+        public boolean fainted;
+        public String name;
+        public String type1;
+        public String type2;
+        public int hp;
+        public boolean isConfused;
+        public boolean isParalyzed;
+        public boolean isPoisoned;
+        public boolean isBurned;
+        public boolean isAsleep;
+        public boolean isFrozen;
+        
+        public Opponent(boolean fainted, String name, String type1, String type2, int hp, boolean isConfused, boolean isParalyzed, boolean isPoisoned, boolean isBurned, boolean isAsleep, boolean isFrozen)
+        {
+            this.fainted = fainted;
+            this.name = name;
+            this.type1 = type1;
+            this.type2 = type2;
+            this.hp = hp;
+            this.isConfused = isConfused;
+            this.isParalyzed = isParalyzed;
+            this.isPoisoned = isPoisoned;
+            this.isBurned = isBurned;
+            this.isAsleep = isAsleep;
+            this.isFrozen = isFrozen;
+        }
+    }
+    public class OppAttk
+    {
+        public String name;
+        public String type;
+        public int dmg;
+        public int pp;
+        public boolean isSpecial;
+        public boolean lowersDefenseStat;
+        public boolean raisesSelfDefenseStat;
+        public boolean lowersAttackStat;
+        public boolean raisesSelfAttackStat;
+        public boolean lowersAccuracy;
+        public boolean raisesSelfAccuracy;
+        public boolean lowersSpAttkStat;
+        public boolean raisesSelfSpAttkStat;
+        public boolean confuses;
+        public boolean paralyzes;
+        public boolean poisons;
+        public boolean burns;
+        public boolean putsOppToSleep;
+        public boolean freezes;
+        
+        
+        public OppAttk (String name, String type, int dmg, int pp, boolean isSpecial, boolean lowersDefenseStat, boolean raisesSelfDefenseStat, boolean lowersAttackStat, boolean raisesSelfAttackStat, boolean lowersAccuracy, boolean raisesSelfAccuracy, boolean lowersSpAttkStat, boolean raisesSelfSpAttkStat, boolean confuses, boolean paralyzes, boolean poisons, boolean burns, boolean putsOppToSleep, boolean freezes)
+        {
+            this.name = name;
+            this.type = type;
+            this.dmg = dmg;
+            this.pp = pp;
+            this.isSpecial = isSpecial;
+            this.lowersDefenseStat = lowersDefenseStat;
+            this.raisesSelfDefenseStat = raisesSelfDefenseStat;
+            this.lowersAttackStat = lowersAttackStat;
+            this.raisesSelfAttackStat = raisesSelfAttackStat;
+            this.lowersAccuracy = lowersAccuracy;
+            this.raisesSelfAccuracy = raisesSelfAccuracy;
+            this.lowersSpAttkStat = lowersSpAttkStat;
+            this.raisesSelfSpAttkStat = raisesSelfSpAttkStat;
+            this.confuses = confuses;
+            this.paralyzes = paralyzes;
+            this.poisons = poisons;
+            this.burns = burns;
+            this.putsOppToSleep = putsOppToSleep;
+            this.freezes = freezes;
+            
+        }
+    }
+    
+	String introDesc;
+    Pokemon pokemon;
+    PkAttk attack1;
+	PkAttk attack2;
+	PkAttk attack3;
+	PkAttk attack4;
+	
+	int totalDamage1;
+	int totalDamage2;
+	int totalDamage3;
+	int totalDamage4;
+	
+	Opponent opponent;
+	OppAttk oppAttack1;
+	OppAttk oppAttack2;
+	OppAttk oppAttack3;
+	OppAttk oppAttack4;
+	
+	double effectiveness = 1.0;
+	boolean superEffective;
+	boolean notVeryEffective;
+	boolean doesNormalDamage;
+	double attackStat = 1;
+	double defenseStat = 1;
+	double oppAttackStat = 1;
+	double oppDefenseStat = 1;
+	double accuracy = 1;
+	double oppAccuracy = 1;
+	double spAttkStat = 1;
+	double oppSpAttkStat = 1;
+	int maybeCriticalHit = 1;
+	
+	String blankInput5;
+	String attackChoice;
+	
+	boolean attackTypeVar;
+	
+	public void determineEffectiveness(String attackType, String oppWeakerType1, String oppWeakerType2, String oppWeakerType3, String oppWeakerType4, String oppWeakerType5, String oppStrongerType1, String oppStrongerType2, String oppStrongerType3,String oppStrongerType4, String oppStrongerType5, String oppNoEffectType)
+	{
+		if ( attack1.type.equals(attackType) || attack2.type.equals(attackType) || attack3.type.equals(attackType) || attack4.type.equals(attackType) )
+		{
+			if ( opponent.type1.equals(oppWeakerType1) || opponent.type1.equals(oppWeakerType2) || opponent.type1.equals(oppWeakerType3) || opponent.type1.equals(oppWeakerType4) || opponent.type1.equals(oppWeakerType5) || opponent.type2.equals(oppWeakerType1) || opponent.type2.equals(oppWeakerType2) || opponent.type2.equals(oppWeakerType3) || opponent.type2.equals(oppWeakerType4) || opponent.type2.equals(oppWeakerType5) )
+				effectiveness = 2;
+			else if ( opponent.type1.equals(oppStrongerType1) || opponent.type1.equals(oppStrongerType2) || opponent.type1.equals(oppStrongerType3) || opponent.type1.equals(oppStrongerType4) || opponent.type1.equals(oppStrongerType5) || opponent.type2.equals(oppStrongerType1) || opponent.type2.equals(oppWeakerType2) || opponent.type2.equals(oppStrongerType3) || opponent.type2.equals(oppStrongerType4) || opponent.type2.equals(oppStrongerType5) )
+				effectiveness = 0.5;
+			else if ( opponent.type1.equals(oppNoEffectType) || opponent.type2.equals(oppNoEffectType) )
+				effectiveness = 0;
+			else effectiveness = 1;
+		
+		}
+		else effectiveness = 1;
+	}
+	
+    public static Scanner input = new Scanner(System.in);
+    public static Random rand = new Random();
+    
+    // This function is executed if the player types 'start' correctly, beginning the game.
+    public void beginTheGame()
+    {
+        System.out.print("\nHello. Welcome to my simple text-based Pokemon tournament!");
+        String blankInput1 = input.nextLine();
+    }
+    // This method is executed if the player does not type 'start' correctly, bringing up an error message and restarting the type_start input.
+    public void typeStartAgain()
+    {
+        System.out.println("Invalid string. Please type 'start' to begin the game.\n");
+        String typeStartAgain2 = input.nextLine().toLowerCase().trim();
+        if (typeStartAgain2.equals("start"))
+            beginTheGame();
+        else typeStartAgain();
+    }
+    
+    // EXPLANATION1
+    // Now for the fun part. Below is the Pokemon choice method.
+    public void pokemonChoiceMethod()
+    {
+    	System.out.print("Choice: ");
+    	String pokemonChoice = input.nextLine().trim();
+    	
+    	// An initialization of the Pokemon object and 4 attack initializations will be created based on
+    	// which Pokemon the player chooses.
+    	
+    	if ( pokemonChoice.equalsIgnoreCase("Charizard") )
+    	{
+    		pokemon = new Pokemon(false, "Charizard", "fire", "flying", 375, false, false, false, false, false, false);
+    		introDesc = "Flame";
+    		attack1 = new PkAttk("Flamethrower", "fire", ( 43 + rand.nextInt(4) ), 10, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack2 = new PkAttk("Dragon Claw", "dragon", ( 38 + rand.nextInt(4) ), 15, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack3 = new PkAttk("Wing Attack", "flying", ( 28 + rand.nextInt(4) ), 15, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack4 = new PkAttk("Flare Blitz", "fire", ( 57 + rand.nextInt(7) ), 5, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		
+    	}
+    	else if ( pokemonChoice.equalsIgnoreCase("Greninja") )
+    	{
+    		pokemon = new Pokemon(false, "Greninja", "water", "dark", 400, false, false, false, false, false, false);
+    		introDesc = "Ninja";
+    		attack1 = new PkAttk("Water Pulse", "water", ( 28 + rand.nextInt(4) ), 20, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack2 = new PkAttk("Extrasensory", "psychic", ( 38 + rand.nextInt(4) ), 10, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack3 = new PkAttk("Water Shuriken", "water", ( 9 + rand.nextInt(3) ), 25, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack4 = new PkAttk("Night Slash", "dark", ( 33 + rand.nextInt(4) ), 15, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		
+    		
+    	}
+    	else if ( pokemonChoice.equalsIgnoreCase("Reshiram") )
+    	{
+    		pokemon = new Pokemon(false, "Reshiram", "fire", "dragon", 425, false, false, false, false, false, false);
+    		introDesc = "Vast White";
+    		attack1 = new PkAttk("Fire Fang", "fire", ( 31 + rand.nextInt(4) ), 20, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack2 = new PkAttk("Dragon Pulse", "dragon", ( 41 + rand.nextInt(4) ), 10, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack3 = new PkAttk("Fusion Flare", "fire", ( 48 + rand.nextInt(7) ), 5, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack4 = new PkAttk("Ancient Power", "rock", ( 28 + rand.nextInt(4) ), 20, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		
+    	}
+    	else if ( pokemonChoice.equalsIgnoreCase("Pikachu") )
+    	{
+    		pokemon = new Pokemon(false, "Pikachu", "electric", "N/A", 400, false, false, false, false, false, false);
+    		introDesc = "Mouse";
+    		attack1 = new PkAttk("Quick Attack", "normal", ( 28 + rand.nextInt(4) ), 20, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack2 = new PkAttk("Thunderbolt", "electric", ( 38 + rand.nextInt(4) ), 15, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack3 = new PkAttk("Thunder", "electric", ( 50 + rand.nextInt(7) ), 5, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack4 = new PkAttk("Iron Tail", "steel", ( 48 + rand.nextInt(4) ), 10, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		
+    	}
+    	else if ( pokemonChoice.equalsIgnoreCase("Dialga") )
+    	{
+    		pokemon = new Pokemon(false, "Dialga", "steel", "dragon", 400, false, false, false, false, false, false);
+    		introDesc = "Temporal";
+    		attack1 = new PkAttk("Ancient Power", "rock", ( 28 + rand.nextInt(4) ), 20, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack2 = new PkAttk("Dragon Breath", "dragon", ( 28 + rand.nextInt(4) ), 15, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack3 = new PkAttk("Roar of Time", "dragon", ( 70 + rand.nextInt(7) ), 3, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack4 = new PkAttk("Flash Cannon", "steel", ( 38 + rand.nextInt(4) ), 10, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		
+    	}
+    	else if ( pokemonChoice.equalsIgnoreCase("Mewtwo") )
+    	{
+    		pokemon = new Pokemon(false, "Mewtwo", "psychic", "nothing", 375, false, false, false, false, false, false);
+    		introDesc = "Genetic";
+    		attack1 = new PkAttk("Confusion", "psychic", ( 13 + rand.nextInt(4) ), 20, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack2 = new PkAttk("Auora Sphere", "fighting", ( 38 + rand.nextInt(4) ), 15, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack3 = new PkAttk("Psystrike", "psychic", ( 48 + rand.nextInt(4) ), 10, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		attack4 = new PkAttk("Psychic", "psychic", ( 43 + rand.nextInt(4) ), 10, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+    		
+    	}
+    	else
+    	{
+    		System.out.println("Invalid choice. Please try again.");
+    		String blankInput4 = input.nextLine().trim();
+    		pokemonChoiceMethod();
+    		return;
+    	}
+    	System.out.println("You chose " + pokemon.name + ", the " + introDesc + " Pokemon! Wise choice young blood.");
+    	
+    }
+    
+    public void pokemon_chooseAgain()
+    {
+    	System.out.println("You either entered an invalid Pokemon name or spelled one of the choices wrong. Try again. ");
+        pokemonChoiceMethod();
+    }
+    
+    public void attackChoiceMethod()
+    {
+    	System.out.println("\nWhat will " + pokemon.name + " do?");
+    	blankInput5 = input.nextLine();
+    	
+    	System.out.println("HP: " + pokemon.hp);
+    	System.out.println(opponent.name + "'s HP: " + opponent.hp);
+    	System.out.println(attack1.name + "\t\t\t" + attack1.pp);
+    	System.out.println(attack2.name + "\t\t\t" + attack2.pp);
+    	System.out.println(attack3.name + "\t\t\t" + attack3.pp);
+    	System.out.println(attack4.name + "\t\t\t" + attack4.pp);
+    	
+    	System.out.print("Attack choice: ");
+    	attackChoice = input.nextLine().trim();
+    	
+    	// Here, the effectiveness of a Pokemon's attack on the opponent is determined
+    	// based on the user's Pokemon's attack type and the opponent's type.
+    	
+    	// If the Pokemon's attack type is strong against the opponent's type, the
+    	// effectiveness of the attack will be 2, doubling the total amount of damage done.
+    	
+    	// If the Pokemon's attack type is weak against the opponent's type, the
+    	// effectiveness of the attack will be 0.5, halving the total amount of damage done.
+    	
+    	// If the Pokemon's attack type has no effect on the opponent's type, the
+    	// effectiveness of the attack will be 0, meaning no damage will be done.
+    	
+    	// Otherwise, the effectiveness will be at 1, the default number, meaning the
+    	// default amount of damage will be done.
+    	
+    	// The first parameter is the type of the user's Pokemon attack.
+    	// #2-6 are the types the Pokemon attack type is strong against.
+    	// #7-11 are the types the Pokemon attack type is weak against.
+    	// #12 is the type the Pokemon's attack type has no effect against.
+    	
+    	determineEffectiveness("fire", "grass", "ice", "bug", "steel", null, "fire", "water", "rock", null, null, null);
+    	determineEffectiveness("dragon", "dragon", null, null, null, null, "steel", null, null, null, null, "fairy");
+    	determineEffectiveness("flying", "grass", "fighting", "bug", null, null, "electric", "rock", "steel", null, null, null);
+    	determineEffectiveness("water", "fire", "ground", "rock", null, null, "water", "grass", "dragon", null, null, null);
+    	determineEffectiveness("psychic", "fighting", "poison", null, null, null, "psychic", "steel", null, null, null, "dark");
+    	determineEffectiveness("ghost", "psychic", "ghost", null, null, null, "dark", null, null, null, null, "normal");
+    	determineEffectiveness("electric", "water", "flying", null, null, null, "electric", "grass", "dragon", null, null, "ground");
+    	determineEffectiveness("rock", "fire", "ice", "flying", "bug", null, "fighting", "ground", "steel", null, null, null);
+    	determineEffectiveness("ground", "fire", "electric", "poison", "rock", "steel", "grass", "bug", null, null, null, "flying");
+    	determineEffectiveness("fighting", "normal", "ice", "rock", "dark", "steel", "poison", "flying", "psychic", "bug", "fairy", null);
+    	
+    	// This is where the total damage is calculated.
+    	// If an opponent's defensive, attack, and accuracy stats are raised or
+    	// lowered, it will affect the total damage done on that opponent. Vice versa
+    	// with the opponent against the user's Pokemon.
+    	totalDamage1 = (int)( ((attack1.dmg) * (effectiveness) * (attackStat) * (accuracy) * (maybeCriticalHit)) / ((oppDefenseStat)) );
+    	totalDamage2 = (int)( ((attack2.dmg) * (effectiveness) * (attackStat) * (accuracy) * (maybeCriticalHit)) / ((oppDefenseStat)) );
+    	totalDamage3 = (int)( ((attack3.dmg) * (effectiveness) * (attackStat) * (accuracy) * (maybeCriticalHit)) / ((oppDefenseStat)) );
+    	totalDamage4 = (int)( ((attack4.dmg) * (effectiveness) * (attackStat) * (accuracy) * (maybeCriticalHit)) / ((oppDefenseStat)) );
+    	
+    	if ( attackChoice.equalsIgnoreCase(attack1.name) )
+    	{
+    		opponent.hp -= totalDamage1;
+    		System.out.println(pokemon.name + " used " + attack1.name + "!");
+    		if (effectiveness > 0)
+    			System.out.println("It did " + totalDamage1 + "damage!");
+    		
+    	}
+    	else if ( attackChoice.equalsIgnoreCase(attack2.name) ) 
+    	{
+    		opponent.hp -= totalDamage2;
+    		System.out.println(pokemon.name + " used " + attack2.name + "!");
+    		System.out.println("It did " + totalDamage2 + "damage!");
+    		
+    	}
+    	else if ( attackChoice.equalsIgnoreCase(attack1.name) )
+    	{
+    		opponent.hp -= totalDamage3;
+    		System.out.println(pokemon.name + " used " + attack3.name + "!");
+    		System.out.println("It did " + totalDamage3 + "damage!");
+    		
+    	}	
+    	else if ( attackChoice.equalsIgnoreCase(attack2.name) )
+    	{
+    		opponent.hp -= totalDamage4;
+    		System.out.println(pokemon.name + " used " + attack4.name + "!");
+    		System.out.println("It did " + totalDamage4 + "damage!");
+    	
+    	}
+    	else
+    	{
+    		System.out.println("Invalid choice. Please try again.");
+    		attackChoiceMethod();
+    		return;
+    	}
+    	
+    	System.out.println(opponent.name + "'s HP is " + opponent.hp + ".");
+    	
+    	if (effectiveness == 2.0)
+    		System.out.println("It was super effective!");
+    	else if (effectiveness == 0.5)
+    		System.out.println("It wasn't very effective...");
+    	else if (effectiveness == 0)
+    		System.out.println("But it had no effect!");
+    	blankInput5 = input.nextLine();
+    	
+    	if (maybeCriticalHit == 2)
+    		System.out.println("A critical hit!");
+    	blankInput5 = input.nextLine();
+    	
+    	if (attack1.lowersDefenseStat || attack2.lowersDefenseStat || attack3.lowersDefenseStat || attack4.lowersDefenseStat)
+    	{
+    		oppDefenseStat -= 0.1;
+    		
+    	}
+    	if (attack1.lowersAttackStat || attack2.lowersAttackStat || attack3.lowersAttackStat || attack4.lowersAttackStat)
+    	{
+    		oppDefenseStat -= 0.1;
+    	}
+    	if (attack1.lowersAccuracy || attack2.lowersAccuracy || attack3.lowersAccuracy || attack4.lowersAccuracy)
+    	{
+    		oppAccuracy -= 0.1;
+    	}
+    	if (attack1.lowersSpAttkStat || attack2.lowersSpAttkStat || attack3.lowersSpAttkStat || attack4.lowersSpAttkStat)
+    	{
+    		oppSpAttkStat -= 0.1;
+    	}	
+    	if (attack1.raisesSelfDefenseStat || attack2.raisesSelfDefenseStat || attack3.raisesSelfDefenseStat || attack4.raisesSelfDefenseStat)
+    	{
+
+    		
+    	}
+    	if (attack1.lowersAttackStat || attack2.lowersAttackStat || attack3.lowersAttackStat || attack4.lowersAttackStat)
+    	{
+    		oppDefenseStat -= 0.1;
+    	}
+    	if (attack1.lowersAccuracy || attack2.lowersAccuracy || attack3.lowersAccuracy || attack4.lowersAccuracy)
+    	{
+    		oppAccuracy -= 0.1;
+    	}
+    	if (attack1.lowersSpAttkStat || attack2.lowersSpAttkStat || attack3.lowersSpAttkStat || attack4.lowersSpAttkStat)
+    	{
+    		oppSpAttkStat -= 0.1;
+    	}
+    		
+    			
+    }
+    
+    public static void main(String[] args)
+    {
+    	// Creates a blank initialization of the whole class to avoid problems with making static references to non-static methods.
+    	PokemonTournament game = new PokemonTournament();
+    	
+        boolean gameOver = false;
+        while (!gameOver)
+        {
+            // Very first line of code that is executed
+            System.out.println("Unless asked for specific user input, press 'ENTER' after reading every text that is received.\n");
+            System.out.println("Enter 'start' to begin the game.\n");
+            String typeStart = input.nextLine().toLowerCase().trim();
+            if (typeStart.equals("start"))
+                game.beginTheGame();
+            else
+                game.typeStartAgain();
+            
+            // Asks for the player's name; this will store the input into a 'name' variable
+            System.out.print("Tell us, what name do you prefer to go by?\n\nName: ");
+            String name = input.nextLine().trim();
+            
+            System.out.println("\nExcellent! " + name + " is a great name! To start the tournament, choose your Pokemon. You and the \nPokemon you choose will battle against other monstrous Pokemon, from Round 1 all the way to \nthe Finals.");
+            String blankInput2 = input.nextLine();
+            
+            System.out.println("Here are your options. Which one will you choose?");
+            String blankInput3 = input.nextLine();
+            
+            // List of Pokemon the player can choose from:
+            System.out.println("Charizard\t\t\tType: Fire/Flying");
+            System.out.println("Greninja\t\t\tType: Water/Dark");
+            System.out.println("Reshiram\t\t\tType: Fire/Dragon");
+            System.out.println("Pikachu\t\t\t\tType: Electric");
+            System.out.println("Dialga\t\t\t\tType: Steel/Dragon");
+            System.out.println("Mewtwo\t\t\t\tType: Psychic\n");
+            
+            // Go to EXPLANATION1 (line 192) to know what's going on next.
+            // All methods listed under which will be executed here.
+            game.pokemonChoiceMethod();
+            
+            // The line below is where I'm testing my newest method.
+            game.attackChoiceMethod();
+            
+            System.exit(0);
+        }
+    }
+}
